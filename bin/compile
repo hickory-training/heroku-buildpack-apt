@@ -7,6 +7,8 @@ set -e
 # debug
 # set -x
 
+echo "Building HICKORY"
+
 # parse and derive params
 BUILD_DIR=$1
 CACHE_DIR=$2
