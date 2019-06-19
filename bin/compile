@@ -72,8 +72,8 @@ for PACKAGE in $(cat $BUILD_DIR/Aptfile | grep -v -s -e '^#' | grep -v -s -e "^:
   else
     topic "Fetching .debs for $PACKAGE"
     apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
-    topic "Dumping which"
-    dpkg -L $PACKAGE
+    #topic "Dump Package Installation $PACKAGE"
+    #dpkg -L $PACKAGE
   fi
 done
 
