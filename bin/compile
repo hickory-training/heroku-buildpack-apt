@@ -73,7 +73,7 @@ for PACKAGE in $(cat $BUILD_DIR/Aptfile | grep -v -s -e '^#' | grep -v -s -e "^:
     topic "Fetching .debs for $PACKAGE"
     apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
     topic "Dumping which"
-    which $PACKAGE
+    dpkg -L $PACKAGE
   fi
 done
 
