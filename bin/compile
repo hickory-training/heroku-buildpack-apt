@@ -96,9 +96,9 @@ topic "dump location file system"
 #echo $PWD
 ls
 
-$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
-$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
-$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
+/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
+/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
+/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
 #/xmlsec1-1.2.26/configure
 #/xmlsec1-1.2.26/make
