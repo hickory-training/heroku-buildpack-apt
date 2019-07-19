@@ -87,13 +87,13 @@ done
 
 topic "Compile libxmlsec1 library to get bin/xmlsec"
 
-cd /tmp
-curl http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output /xmlsec1-1.2.26.tar.gz
-tar -xvf xmlsec1-1.2.26.tar.gz
-cd xmlsec1-1.2.26
-./configure
-make
-make install
+mkdir -p "$BUILD_DIR/xmlsec-compile"
+curl http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
+tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
+
+./$BUILD_DIR/xmlsec-compile/configure
+./$BUILD_DIR/xmlsec-compile/make
+./$BUILD_DIR/xmlsec-compile/make install
 
 topic "lib xml installed"
 
