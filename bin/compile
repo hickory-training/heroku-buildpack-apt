@@ -93,7 +93,6 @@ topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
 tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
 topic "check if we have xmlsec1 at all"
-which xmlsec1
 
 topic "current: $PWD"
 
@@ -115,7 +114,7 @@ make && make install
 
 topic "lib xml installed"
 
-which xmlsec1
+#which xmlsec1
 
 
 
