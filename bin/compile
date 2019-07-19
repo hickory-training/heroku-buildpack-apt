@@ -7,6 +7,8 @@ set -e
 # debug
 # set -x
 
+echo "Building HICKORY"
+
 # parse and derive params
 BUILD_DIR=$1
 CACHE_DIR=$2
@@ -80,6 +82,43 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
 
+#topic "Check libsec install"
+#dpkg -L libxmlsec1
+
+topic "Compile libxmlsec1 library to get bin/xmlsec"
+
+mkdir -p "$BUILD_DIR/xmlsec-compile"
+curl -L http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
+topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
+tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
+
+topic "check if we have xmlsec1 at all"
+
+topic "current: $PWD"
+
+topic "cd xmlsec1-1.2.26/"
+cd xmlsec1-1.2.26/
+
+#./configure
+#/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
+#/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
+#/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
+
+topic "Run $PWD > ./configure"
+./configure  --prefix /app/.apt/usr/
+
+topic "Configure complete, currently at: $PWD"
+
+mke && make install
+
+
+topic "lib xml installed"
+
+#which xmlsec1
+
+mkdir -p "$BUILD_DIR/s3-pull/"
+curl -L https://versed.s3-us-west-2.amazonaws.com/static/xmlsec1 --output "$BUILD_DIR/s3-pull/xmlsec1"
+
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
@@ -105,3 +144,5 @@ export | grep -E -e ' (PATH|LD_LIBRARY_PATH|LIBRARY_PATH|INCLUDE_PATH|CPATH|CPPP
 
 topic "Rewrite package-config files"
 find $BUILD_DIR/.apt -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty -n 1 sed -i -e 's!^prefix=\(.*\)$!prefix='"$BUILD_DIR"'/.apt\1!g'
+
+
