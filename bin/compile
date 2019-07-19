@@ -93,8 +93,8 @@ topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
 tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
 topic "dump location file system"
-echo $PWD
-
+#echo $PWD
+ls
 
 $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
 $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
