@@ -93,8 +93,8 @@ topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
 tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
 topic "current: $PWD"
-topic "dump location file system"
 
+topic "cd xmlsec1-1.2.26/"
 cd xmlsec1-1.2.26/
 
 #./configure
@@ -102,10 +102,11 @@ cd xmlsec1-1.2.26/
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
-topc "Run $PWD > ./configure"
+topic "Run $PWD > ./configure"
 ./configure
 
-topic "Configure complete, at: $PWD"
+topic "Configure complete, currently at: $PWD"
+ls | grep 'Make'
 ./make
 ./make install
 
