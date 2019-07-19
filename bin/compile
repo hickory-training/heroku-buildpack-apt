@@ -92,6 +92,9 @@ curl -L http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$
 topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
 tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
+topic "check if we have xmlsec1 at all"
+which xmlsec1
+
 topic "current: $PWD"
 
 topic "cd xmlsec1-1.2.26/"
@@ -107,7 +110,7 @@ topic "Run $PWD > ./configure"
 
 topic "Configure complete, currently at: $PWD"
 
-./make && make install
+make && make install
 
 
 topic "lib xml installed"
