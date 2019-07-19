@@ -90,7 +90,7 @@ topic "Compile libxmlsec1 library to get bin/xmlsec"
 mkdir -p "$BUILD_DIR/xmlsec-compile"
 curl -L http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
-tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz" "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26"
+tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
 topic "dump location file system"
 echo $PWD
