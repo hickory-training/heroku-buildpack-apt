@@ -96,15 +96,15 @@ topic "dump location file system"
 
 cd xmlsec1-1.2.26/
 ls
-./configure
+#./configure
 
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
-#/xmlsec1-1.2.26/configure
-#/xmlsec1-1.2.26/make
-#/xmlsec1-1.2.26/make install
+./configure
+./make
+./make install
 
 
 topic "lib xml installed"
