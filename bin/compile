@@ -92,17 +92,20 @@ curl -L http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$
 topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
 tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 
+topic "current: $PWD"
 topic "dump location file system"
 
 cd xmlsec1-1.2.26/
-ls
-#./configure
 
+#./configure
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
+topc "Run $PWD > ./configure"
 ./configure
+
+topic "Configure complete, at: $PWD"
 ./make
 ./make install
 
