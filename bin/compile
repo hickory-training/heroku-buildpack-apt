@@ -90,19 +90,19 @@ topic "Compile libxmlsec1 library to get bin/xmlsec"
 mkdir -p "$BUILD_DIR/xmlsec-compile"
 curl -L http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
 topic "Extract - to $BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/"
-tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz"
+tar -xvf "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26.tar.gz" "$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26"
 
-topic "dump file system"
-ls /
+topic "dump location file system"
+echo $PWD
 
 
-#$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
-#$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
-#$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
+$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/configure
+$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make
+$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
-/xmlsec1-1.2.26/configure
-/xmlsec1-1.2.26/make
-/xmlsec1-1.2.26/make install
+#/xmlsec1-1.2.26/configure
+#/xmlsec1-1.2.26/make
+#/xmlsec1-1.2.26/make install
 
 
 topic "lib xml installed"
