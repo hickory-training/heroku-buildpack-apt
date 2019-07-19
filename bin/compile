@@ -7,6 +7,8 @@ set -e
 # debug
 # set -x
 
+echo "Building HICKORY"
+
 # parse and derive params
 BUILD_DIR=$1
 CACHE_DIR=$2
@@ -79,6 +81,23 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
+
+#topic "Check libsec install"
+#dpkg -L libxmlsec1
+
+topic "Compile libxmlsec1 library to get bin/xmlsec"
+
+cd /tmp
+curl http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.26.tar.gz --output /xmlsec1-1.2.26.tar.gz
+tar -xvf xmlsec1-1.2.26.tar.gz
+cd xmlsec1-1.2.26
+./configure
+make
+make install
+
+topic "lib xml installed"
+
+
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
