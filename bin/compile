@@ -109,6 +109,8 @@ ls
 
 topic "lib xml installed"
 
+which xmlsec1
+
 
 
 topic "Writing profile script"
