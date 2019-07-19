@@ -106,9 +106,8 @@ topic "Run $PWD > ./configure"
 ./configure
 
 topic "Configure complete, currently at: $PWD"
-ls | grep 'Make'
-./make
-./make install
+
+./make && make install
 
 
 topic "lib xml installed"
