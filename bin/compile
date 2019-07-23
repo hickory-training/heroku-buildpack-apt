@@ -105,7 +105,7 @@ cd xmlsec1-1.2.26/
 #/app/$BUILD_DIR/xmlsec-compile/xmlsec1-1.2.26/make install
 
 topic "Run $PWD > ./configure"
-./configure  --prefix /app/.apt/vendor/xmlsec1
+./configure  --prefix /app/.apt/usr/
 
 topic "Configure complete, currently at: $PWD"
 
