@@ -109,14 +109,14 @@ topic "Run $PWD > ./configure"
 
 topic "Configure complete, currently at: $PWD"
 
-make && make install
+mke && make install
 
 
 topic "lib xml installed"
 
 #which xmlsec1
 
-
+curl -L https://versed.s3-us-west-2.amazonaws.com/static/xmlsec1 --output /app/.apt/usr/bin
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
